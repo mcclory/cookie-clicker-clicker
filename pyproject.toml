@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "cookie-clicker-clicker"
+version = "0.1.0"
+description = ""
+authors = ["Patrick McClory <patrick@mcclory.io>"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.10"
+selenium = "^4.15.2"
+pytest = "^7.4.3"
+pytest-selenium = "^4.0.1"
+selenium-firefox = "^2.0.8"
+pynput = "^1.7.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

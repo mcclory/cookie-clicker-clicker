@@ -15,6 +15,7 @@ from collections import Counter
 from pynput.keyboard import Key, Listener
 from concurrent.futures import ThreadPoolExecutor
 import time
+import keyboard
 
 RUN_LOOP = True 
 
@@ -55,6 +56,15 @@ class CookieClickerClicker():
     lang_select = WebDriverWait(self.driver, 30).until(expected_conditions.element_to_be_clickable((By.ID, "langSelect-EN")))
     lang_select.click()
     self.big_cookie = WebDriverWait(self.driver, 20).until(expected_conditions.element_to_be_clickable((By.ID, "bigCookie")))
+
+  def toggle_run_clicker(self):
+    self.run_clicker = not self.run_clicker 
+
+  def toggle_buy_products(self): 
+    self.buy_products = not self.buy_products
+
+  def toggle_buy_upgrades(self):
+    self.buy_upgrades = not self.buy_upgrades
 
   def click_buyables(self, base_name): 
     for x in sorted(range(20), reverse=True):
@@ -113,5 +123,9 @@ class CookieClickerClicker():
 
 if __name__ == '__main__': 
   ccc = CookieClickerClicker()
+  keyboard.on_press_key("u", ccc.toggle_buy_upgrades)
+  keyboard.on_press_key("p", ccc.toggle_buy_products)
+  keyboard.on_press_key("c", ccc.toggle_run_clicker)
+  
   while True: 
     ccc.run_loop()

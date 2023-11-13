@@ -123,9 +123,9 @@ class CookieClickerClicker():
 
 if __name__ == '__main__': 
   ccc = CookieClickerClicker()
-  keyboard.on_press_key("u", ccc.toggle_buy_upgrades)
-  keyboard.on_press_key("p", ccc.toggle_buy_products)
-  keyboard.on_press_key("c", ccc.toggle_run_clicker)
+  # keyboard.on_press_key("u", ccc.toggle_buy_upgrades)
+  # keyboard.on_press_key("p", ccc.toggle_buy_products)
+  # keyboard.on_press_key("c", ccc.toggle_run_clicker)
   
   while True: 
     ccc.run_loop()

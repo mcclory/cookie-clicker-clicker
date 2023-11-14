@@ -91,6 +91,12 @@ class CookieClickerClicker():
   def run_loop(self, join_at_end=True, log_details=False): 
     tic = time.perf_counter()
     ret_val = {}
+    if self.run_clicker: 
+      ret_val['clicker'] = []
+      for _ in range(self.clicker_loop_count):
+        t = threading.Thread(target=self.click_cookie)
+        ret_val['clicker'].append(t)
+        t.start()
     if self.click_shimmer:
       t = threading.Thread(target=self.evaluate_shimmers)
       ret_val['shimmer'] = [t]
@@ -104,7 +110,6 @@ class CookieClickerClicker():
       ret_val['upgrade'] = [t]
       t.start()
     if self.run_clicker:
-      ret_val['clicker'] = []
       for _ in range(self.clicker_loop_count):
         t = threading.Thread(target=self.click_cookie)
         ret_val['clicker'].append(t)
